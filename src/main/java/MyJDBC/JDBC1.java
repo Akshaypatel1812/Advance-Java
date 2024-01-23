@@ -1,4 +1,4 @@
-package MyJDBC;
+// package MyJDBC;
 
 public class JDBC1 {
 
