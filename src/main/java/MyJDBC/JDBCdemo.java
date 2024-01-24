@@ -15,9 +15,9 @@ public class JDBCdemo {
         Connection conn = DriverManager.getConnection(url, username, password);
         
         Statement stm=conn.createStatement();
-        String query="create database Demo";
+        String query="create database Demo";           // databases always creates in small letters
         stm.execute(query);
-        System.out.println("connected Succesfully Jay Shree Ram");
+        System.out.println("connected Succesfully");
 
         } catch (Exception e) {
             e.printStackTrace();
