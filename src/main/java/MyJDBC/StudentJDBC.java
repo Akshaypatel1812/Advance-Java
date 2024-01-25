@@ -119,8 +119,8 @@ public class StudentJDBC {
 	        //here when we execute query will get our success message but we can't see the data on our console
 	        while(rs.next()) {                                  //it gives all Inserts
 	        	System.out.print("id="+rs.getInt(1)+"  ");
-	        	System.out.print("id="+rs.getString(2)+"  ");
-	        	System.out.println("id="+rs.getString(3)+"  ");
+	        	System.out.print("name="+rs.getString(2)+"  ");
+	        	System.out.println("mailId="+rs.getString(3)+"  ");
 	        }
 	        
 	        System.out.println("data selected Succesfully");
@@ -132,4 +132,52 @@ public class StudentJDBC {
 		
 	}
 
-}
+	public void deleteData() {
+		try {
+			String url = "jdbc:mysql://localhost/Student";
+	        String username = "root";
+	        String password = "Root@1812";
+
+	        // Load the JDBC driver
+	        
+//	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        Connection conn = DriverManager.getConnection(url, username, password);
+	        
+	        Statement stm=conn.createStatement();
+	        String query="delete from Student WHERE Sid=1";           // databases always creates in small letters
+	        stm.execute(query);
+	        System.out.println("Deleted Succesfully");
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	           
+	        }
+	}
+
+	public void updateDB() {
+		try {
+			String url = "jdbc:mysql://localhost/Student";
+	        String username = "root";
+	        String password = "Root@1812";
+
+	        // Load the JDBC driver
+	        
+//	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        Connection conn = DriverManager.getConnection(url, username, password);
+	        String query="update student set Semail=? WHERE Sid=?";  
+	        PreparedStatement pstm=conn.prepareStatement(query);
+	        pstm.setString(1, "Basanti@gmail.com");
+	        pstm.setInt(2, 75);
+	        pstm.execute();
+	        System.out.println("Data Updated Succesfully");
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	           
+	        }
+		
+	}
+		
+	}
+
+

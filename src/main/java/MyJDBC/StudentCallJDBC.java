@@ -15,7 +15,15 @@ public class StudentCallJDBC {
 //		s1.insertDatabase2();
 		
 //      Read data
+//		s1.readData();
+		
+//      Delete data
+//		s1.deleteData();
+		
+		
+		s1.updateDB();
 		s1.readData();
+		
 		
 		
 		
